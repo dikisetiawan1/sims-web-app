@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    
-   <!-- Custom fonts for this template-->
 
- @include('includes.style')
+    <!-- Custom fonts for this template-->
+
+    @include('includes.style')
     <title>SIMS web app</title>
 </head>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -23,27 +24,27 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-              <img src="/img/Handbag.png" alt="">
+                <img src="/img/Handbag.png" alt="">
                 <div class="sidebar-brand-text mx-3">SIMS web app</div>
             </a>
 
-      <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                  <img src="/img/Package.png" alt="">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item selection ">
+                <a class="nav-link " href="index.html">
+                    <img src="/img/Package.png" alt="">
                     <span>Produk</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="index.html">
-                  <img src="/img/User.png" alt="">
+                    <img src="/img/User.png" alt="">
                     <span>Profile</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="index.html">
-                  <img src="/img/SignOut.png" alt="">
+                    <img src="/img/SignOut.png" alt="">
                     <span>Logout</span></a>
             </li>
-   
+
         </ul>
         <!-- End of Sidebar -->
 
@@ -66,7 +67,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-   
+
 
     @include('includes.script')
 
