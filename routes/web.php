@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\DashboardProfile::class, 'index'])->name('dashboard-profile');
+Route::get('/', [App\Http\Controllers\DashboardProduk::class, 'index'])->name('dashboard-produk');
