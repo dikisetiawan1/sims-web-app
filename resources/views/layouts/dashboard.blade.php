@@ -23,7 +23,7 @@
         <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
           
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <img src="/img/Handbag.png" alt="">
                 <div class="sidebar-brand-text mx-3">SIMS web app</div>
             </a>
@@ -40,7 +40,7 @@
                     <span>Profile</span></a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="#">
                     <img src="/img/SignOut.png" alt="">
                     <span>Logout</span></a>
             </li>
