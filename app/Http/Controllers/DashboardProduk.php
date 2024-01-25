@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 
 class DashboardProduk extends Controller
 {
     public function index(){
-        return view('pages.dashboard-produk');
+        $data = Produk::all();
+        return view('pages.dashboard-produk', ['data'=>$data]);
     }
    
     public function create()
@@ -23,7 +26,33 @@ class DashboardProduk extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate form
+        $this->validate($request, [
+            'img'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'barang'     => 'required',
+            'kategori'   => 'required',
+            'hargaJual'   => 'required',
+            'hargaBeli'   => 'required',
+            'stok'   => 'required'
+        ]);
+
+        //upload image
+        $img = $request->file('img');
+        $img->storeAs('public/posts', $img->hashName());
+
+        //create post
+        Produk::create([
+            'img'     => $img->hashName(),
+            'barang'     => $request->barang,
+            'kategori'   => $request->kategori,
+            'hargaJual'   => $request->hargaJual,
+            'hargaBeli'   => $request->hargaBeli,
+            'stok'   => $request->stok
+          
+        ]);
+
+        //redirect to index
+        return redirect()->route('dashboard-produk.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**

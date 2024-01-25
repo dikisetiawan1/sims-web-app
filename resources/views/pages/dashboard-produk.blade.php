@@ -4,7 +4,11 @@
 <div class="container mt-4">
     Daftar Produk
     <div class="row mt-3">
-        <div class="col-3 input-group-sm">
+        <div class="col-3 input-group-sm input-group">
+            <span class="icon"></span>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-search" style="color: #ffffff;"></i></span>
+              </div>
             <input type="text" name="search" id="search" aria-label="Small" class="form-control" placeholder="Cari Barang">
         </div>
         <div class="col-2 mr-auto input-group-sm" >
@@ -46,19 +50,21 @@
                         </thead>
                     </tr>
                     <tr>
+                        @foreach($data as $item)
                         <tbody>
-                            <td>1</td>
-                            <td>Bola basket.png</td>
-                            <td>Bola Basket</td>
-                            <td>Alat Olahraga</td>
-                            <td>Rp. 200.000</td>
-                            <td>Rp. 250.000</td>
-                            <td>230</td>
+                            <td>{{$item->id}}</td>
+                            <td>{{$item->img}}</td>
+                            <td>{{$item->nama_produk}}</td>
+                            <td>{{$item->kategori_product}}</td>
+                            <td>{{$item->harga_beli}}</td>
+                            <td>{{$item->harga_jual}}</td>
+                            <td>{{$item->stok}}</td>
                             <td>
                                 <a href="edit.php"><img src="/img/edit.png" alt="" class="mr-2"></a>
                                 <a href="edit.php"><img src="/img/delete.png" alt=""></a>
                             </td>
                         </tbody>
+                        @endforeach
                     </tr>
 
                   </table>

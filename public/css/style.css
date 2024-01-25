@@ -1,5 +1,40 @@
+body{
+    font-family: roboto;
+}
+
+
 .selection {
     background-color: rgba(255, 255, 255, 0.432);
     padding-top: 0;
     padding-bottom: 0;
 }
+#imagePreview {
+    margin-top: 20px;
+    border: 1px solid rgba(43, 41, 41, 0.432);
+    border-radius: 3px;
+}
+
+#imagePreview img {
+    max-width: 100%;
+    max-height: 200px;
+    display: block;
+    margin: 10px auto;
+    
+}
+
+/* icon input */
+.input-group {
+    position: relative;
+    
+}
+
+.icon {
+    background-color:  white !important;
+    color: #555;
+}
+
+input {
+    padding-left: 30px; /* Adjust based on the icon width */
+    width: 200px; /* Adjust based on your design */
+}
+

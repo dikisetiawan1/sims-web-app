@@ -16,15 +16,20 @@
   <script src="js/demo/chart-pie-demo.js"></script>
 
   <script>
-    function readURL(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
+   function previewImage(event) {
+    const fileInput = event.target;
+    const file = fileInput.files[0];
 
-      reader.onload = function (e) {
-        $('#image').attr('src', e.target.result);
-      }
+    if (file) {
+        const reader = new FileReader();
 
-      reader.readAsDataURL(input.files[0]);
+        reader.onload = function (e) {
+            const imagePreview = document.getElementById('imagePreview');
+            imagePreview.innerHTML = '<img src="' + e.target.result + '" alt="Preview" />';
+        };
+
+        reader.readAsDataURL(file);
     }
-  } 
+}
+
   </script>
