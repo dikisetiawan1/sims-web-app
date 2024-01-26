@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class DashboardProfile extends Controller
 {
     public function index(){
-        return view('pages.dashboard-profile');
+        return view('pages.admin.profile');
     }
 }

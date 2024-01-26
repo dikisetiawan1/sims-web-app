@@ -12,7 +12,7 @@
             <input type="text" name="search" id="search" aria-label="Small" class="form-control" placeholder="Cari Barang">
         </div>
         <div class="col-2 mr-auto input-group-sm" >
-           <select name="category" id="category" aria-label="Small" class="form-control">
+           <select name="kategori" id="kategori" aria-label="Small" class="form-control">
             <option selected>Semua</option>
             <option value="Alat Olahraga">Alat Olahraga</option>
             <option value="Alat Musik">Alat Musik</option>
@@ -56,8 +56,8 @@
                             <td>{{$item->img}}</td>
                             <td>{{$item->nama_produk}}</td>
                             <td>{{$item->kategori_product}}</td>
-                            <td>{{$item->harga_beli}}</td>
-                            <td>{{$item->harga_jual}}</td>
+                            <td>{{rupiah($item->harga_beli)}}</td>
+                            <td>{{rupiah($item->harga_jual)}}</td>
                             <td>{{$item->stok}}</td>
                             <td>
                                 <a href="edit.php"><img src="/img/edit.png" alt="" class="mr-2"></a>

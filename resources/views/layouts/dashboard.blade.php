@@ -29,13 +29,13 @@
             </a>
          
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item  {{ (request()->is('/')) ? 'selection' : '' }}">
-                <a class="nav-link " href="{{route('dashboard-produk')}}">
+            <li class="nav-item  {{ (request()->is('produk')) ? 'selection' : '' }}">
+                <a class="nav-link " href="{{route('produk')}}">
                     <img src="/img/Package.png" alt="">
                     <span>Produk</span></a>
             </li>
-            <li class="nav-item {{ (request()->is('dashboard-profile')) ? 'selection' : '' }} ">
-                <a class="nav-link" href="{{route('dashboard-profile')}}">
+            <li class="nav-item {{ (request()->is('profile')) ? 'selection' : '' }} ">
+                <a class="nav-link" href="{{route('profile')}}">
                     <img src="/img/User.png" alt="">
                     <span>Profile</span></a>
             </li>

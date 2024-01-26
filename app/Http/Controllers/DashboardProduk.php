@@ -9,13 +9,13 @@ use Illuminate\Http\Request;
 class DashboardProduk extends Controller
 {
     public function index(){
-        $data = Produk::all();
-        return view('pages.dashboard-produk', ['data'=>$data]);
+        $data = Produk::get();
+        return view('pages.admin.produk', ['data'=>$data]);
     }
-   
+
     public function create()
     {
-        return view('pages.dashboard-tambahProduk');
+        return view('pages.admin.tambahProduk');
     }
 
     /**
@@ -26,33 +26,19 @@ class DashboardProduk extends Controller
      */
     public function store(Request $request)
     {
-        //validate form
-        $this->validate($request, [
-            'img'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'barang'     => 'required',
-            'kategori'   => 'required',
-            'hargaJual'   => 'required',
-            'hargaBeli'   => 'required',
-            'stok'   => 'required'
-        ]);
+       $produk = new Produk();
 
-        //upload image
-        $img = $request->file('img');
-        $img->storeAs('public/posts', $img->hashName());
+       $produk->nama_produk= $request->nama_produk;
+       $produk->kategori_product= $request->kategori_product;
+       $produk->harga_jual= $request->harga_jual;
+       $produk->harga_beli= $request->harga_beli;
+       $produk->stok= $request->stok;
+       $produk->img= $request->img;
 
-        //create post
-        Produk::create([
-            'img'     => $img->hashName(),
-            'barang'     => $request->barang,
-            'kategori'   => $request->kategori,
-            'hargaJual'   => $request->hargaJual,
-            'hargaBeli'   => $request->hargaBeli,
-            'stok'   => $request->stok
-          
-        ]);
+       $produk->save();
 
         //redirect to index
-        return redirect()->route('dashboard-produk.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('produk')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
