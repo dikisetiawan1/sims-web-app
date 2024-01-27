@@ -12,11 +12,11 @@
   <div class="row">
     <div class="col-8">
       <label for="">Nama Kandidat</label>
-      <input type="text" name="nama_kandidat" id="nama_kandidat" value="@ Diki Setiawan" class="form-control">
+      <input type="text" name="nama_kandidat" id="nama_kandidat" value="@ Diki Setiawan" class="form-control" readonly>
     </div>
     <div class="col-4">
       <label for="">Posisi Kandidat</label>
-      <input type="text" name="posisi_kandidat" id="posisi_kandidat" value="</> Web Programmer" class="form-control">
+      <input type="text" name="posisi_kandidat" id="posisi_kandidat" value="</> Web Programmer" class="form-control" readonly>
 
     </div>
   </div>

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/produk', [App\Http\Controllers\DashboardProduk::class, 'index'])->name('produk');
 Route::get('/tambah-produk', [App\Http\Controllers\DashboardProduk::class, 'create'])->name('tambah-produk');
-Route::post('/store', [App\Http\Controllers\DashboardProduk::class, 'store'])->name('store');
+Route::post('/produk/proses', [App\Http\Controllers\DashboardProduk::class, 'store'])->name('store');
 
 
 

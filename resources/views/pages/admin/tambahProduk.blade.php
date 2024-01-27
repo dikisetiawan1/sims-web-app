@@ -37,10 +37,10 @@
             <div class="row mt-4">
               <div class="col-12">
                 <label for="">Upload Image</label> <br>
-                <input type="text" name="img" id="fileInput" accept="image/*" onchange="previewImage(event)" />
-                {{-- <div id="imagePreview" >
+                <input type="file" name="img" id="fileInput" accept="image/*" onchange="previewImage(event)" />
+                <div id="imagePreview" >
                   <img src="/img/image.png" alt="">
-                </div> --}}
+                </div>
               </div>
             </div>
 
