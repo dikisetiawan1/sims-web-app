@@ -26,15 +26,7 @@ class DashboardProduk extends Controller
      */
     public function store(Request $request)
     {
-    //    $produk = new Produk();
-    //    $produk->nama_produk= $request->nama_produk;
-    //    $produk->kategori_product= $request->kategori_product;
-    //    $produk->harga_jual= $request->harga_jual;
-    //    $produk->harga_beli= $request->harga_beli;
-    //    $produk->stok= $request->stok;
-    //    $produk->img= $request->img;
 
-    //    $produk->save();
     $request->validate([
         'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'nama_produk' => 'required',
@@ -44,11 +36,11 @@ class DashboardProduk extends Controller
         'stok' => 'required'
     ]);
 
-    $image = $request->file('image');
-    $image->storeAs('public/posts', $image->hashName());
+    $image = $request->file('img');
+    $image->storeAs('public/produk', $image->hashName());
 
     Produk::create([
-        'img' => $image->hasName(),
+        'img' => $image->hashName(),
         'nama_produk' => $request->nama_produk,
         'kategori_product' => $request->kategori_product,
         'harga_jual' => $request->harga_jual,

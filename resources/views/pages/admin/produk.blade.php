@@ -50,12 +50,17 @@
                         </thead>
                     </tr>
                     <tr>
-                        @foreach($data as $item)
+                        <div class="number" hidden>
+                            {{$no= 1}}
+                        </div>
+                        @foreach( $data as $item)
                         <tbody>
-                            <td>{{$item->id}}</td>
-                            <td>{{$item->img}}</td>
+                            <td>{{$no++}}</td>
+                            <td>
+                                <img src="{{Storage::url('public/produk/').$item->img }}"  style="width: 100%">
+                            </td>
                             <td>{{$item->nama_produk}}</td>
-                            <td>{{$item->kategori_product}}</td>
+                            <td>{{$item->kategori_produk}}</td>
                             <td>{{rupiah($item->harga_beli)}}</td>
                             <td>{{rupiah($item->harga_jual)}}</td>
                             <td>{{$item->stok}}</td>
