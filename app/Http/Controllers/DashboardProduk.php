@@ -72,7 +72,7 @@ class DashboardProduk extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('pages.admin.edit', compact('produk'));
     }
 
     /**
@@ -84,7 +84,7 @@ class DashboardProduk extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

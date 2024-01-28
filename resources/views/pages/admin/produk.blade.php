@@ -55,12 +55,12 @@
                         </div>
                         @foreach( $data as $item)
                         <tbody>
-                            <td>{{$no++}}</td>
+                            <td>{{$no}}</td>
                             <td>
-                                <img src="{{Storage::url('public/produk/').$item->img }}"  style="width: 100%">
+                                <img src="{{Storage::url('public/produk/').$item->img }}"  style="width: 25%">
                             </td>
                             <td>{{$item->nama_produk}}</td>
-                            <td>{{$item->kategori_produk}}</td>
+                            <td>{{$item->kategori_product}}</td>
                             <td>{{rupiah($item->harga_beli)}}</td>
                             <td>{{rupiah($item->harga_jual)}}</td>
                             <td>{{$item->stok}}</td>
@@ -69,6 +69,9 @@
                                 <a href="edit.php"><img src="/img/delete.png" alt=""></a>
                             </td>
                         </tbody>
+                        <div class="number" hidden>
+                            {{$no++}}
+                        </div>
                         @endforeach
                     </tr>
 
@@ -80,3 +83,4 @@
     </div>
  </div>
 @endsection
+
