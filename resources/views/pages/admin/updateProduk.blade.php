@@ -10,7 +10,7 @@
                 <label for="">Kategori</label>
                 <select name="kategori_product" id="" class="form-control">
                   <option value="Alat Olahraga" selected>Alat Olahraga</option>
-                  <option value="Alat Musik" selected>Alat Musik</option>   
+                  <option value="Alat Musik">Alat Musik</option>   
                 </select>
               </div>
               <div class="col-8 ">
@@ -18,7 +18,6 @@
                 <input type="text" name="nama_produk" id="nama_produk" class="form-control" placeholder="Masukkan nama barang" value="{{$data->nama_produk}}">
               </div>
             </div>
-
             <div class="row mt-4 ">
               <div class="col-4">
                 <label for="">Harga Jual</label>
@@ -33,7 +32,6 @@
                 <input type="text" name="stok" id="stok" class="form-control" placeholder="Masukkan jumlah stok barang" value="{{$data->stok}}">
               </div>
             </div>
-
             <div class="row mt-4">
               <div class="col-12">
                 <label for="">Upload Image</label> <br>
@@ -54,6 +52,12 @@
             </div>
              {{-- loading overlay --}}
              <div class="loading-overlay" id="loadingOverlay">
-              <div class="loading-spinner"></div>
+              {{-- <div class="loading-spinner"></div> --}}
+              <div class="sk-folding-cube">
+                <div class="sk-cube1 sk-cube"></div>
+                <div class="sk-cube2 sk-cube"></div>
+                <div class="sk-cube4 sk-cube"></div>
+                <div class="sk-cube3 sk-cube"></div>
+              </div>
           </div>
 @endsection
