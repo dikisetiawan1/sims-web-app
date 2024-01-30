@@ -34,8 +34,18 @@
     </div>
     <div class="row">
         <div class="col-12 mt-4">
+           @if(session('success'))
+           <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <strong>{{session('success')}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+           @endif
             <div class="card">
                 <div class="card-body">
+                    @if(count($data) >0)
                   <table class="table table striped">
                     <tr>
                         <thead>
@@ -57,7 +67,7 @@
                         <tbody>
                             <td>{{$no}}</td>
                             <td>
-                                <img src="{{Storage::url('public/produk/').$item->img }}"  style="width: 25%">
+                                <img src="{{Storage::url('public/produk/').$item->img }}"  style="width: 22px">
                             </td>
                             <td>{{$item->nama_produk}}</td>
                             <td>{{$item->kategori_product}}</td>
@@ -65,8 +75,12 @@
                             <td>{{rupiah($item->harga_jual)}}</td>
                             <td>{{$item->stok}}</td>
                             <td>
-                                <a href="edit.php"><img src="/img/edit.png" alt="" class="mr-2"></a>
-                                <a href="edit.php"><img src="/img/delete.png" alt=""></a>
+                                <a href="{{ route('produk-edit', $item->id) }}"><img src="/img/edit.png" alt="" class="mr-2"></a>
+                                <form action="{{ route('produk-destroy', $item->id) }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')"><img src="/img/delete.png" alt=""></a>
+                                </form>
                             </td>
                         </tbody>
                         <div class="number" hidden>
@@ -76,6 +90,11 @@
                     </tr>
 
                   </table>
+                  @else
+                  <div class="alert alert-danger">
+                    <h5>Data produk masih kosong, silahkan tambahkan dahulu!</h5>
+                  </div>
+                  @endif
 
                 </div>
             </div>
