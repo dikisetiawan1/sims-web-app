@@ -47,9 +47,13 @@
             <div class="row mt-3 " >
               <div class="col-12 d-flex justify-content-end">
                 <button type="submit" class="btn btn-outline-primary col-sm-2 mx-2 ">Batalkan</button>
-                <button type="submit" class="btn btn-primary col-sm-2">Simpan</button>
+                <button type="submit" class="btn btn-primary col-sm-2" onclick="submitForm()">Simpan</button>
               </div>
             </div>
           </form>
             </div>
+             {{-- loading overlay --}}
+             <div class="loading-overlay" id="loadingOverlay">
+              <div class="loading-spinner"></div>
+          </div>
 @endsection

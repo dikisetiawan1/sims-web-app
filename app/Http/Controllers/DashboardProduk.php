@@ -115,7 +115,7 @@ class DashboardProduk extends Controller
             'harga_beli' => $request->harga_beli,
             'stok' => $request->stok
         ]);
-        Session::flash('success','Data berhasil diubah!');
+        Session::flash('info','Data berhasil diubah!');
 
         return redirect()->route('produk');
 
@@ -129,6 +129,10 @@ class DashboardProduk extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Produk::find($id);
+        $data->delete();
+        Session::flash('warning','Data berhasil hapus!');
+
+        return redirect()->route('produk');
     }
 }

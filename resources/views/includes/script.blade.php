@@ -15,6 +15,7 @@
   <script src="/js/demo/chart-area-demo.js"></script>
   <script src="/js/demo/chart-pie-demo.js"></script>
 
+  {{-- custom script js --}}
   <script>
    function previewImage(event) {
     const fileInput = event.target;
@@ -32,4 +33,12 @@
     }
 }
 
+
+// loading overlay pages
+function submitForm() {
+        // Tampilkan overlay loading saat form dikirim
+        document.getElementById('loadingOverlay').style.display = 'flex';
+        // Submit form secara asinkron menggunakan JavaScript
+        document.getElementById('productForm').submit();
+    }
   </script>

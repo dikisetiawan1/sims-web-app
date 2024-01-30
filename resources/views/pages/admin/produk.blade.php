@@ -42,6 +42,22 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
+          @elseif(session('info'))
+          <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <strong>{{session('info')}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @elseif(session('warning'))
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <strong>{{session('warning')}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
            @endif
             <div class="card">
                 <div class="card-body">
@@ -76,11 +92,12 @@
                             <td>{{$item->stok}}</td>
                             <td>
                                 <a href="{{ route('produk-edit', $item->id) }}"><img src="/img/edit.png" alt="" class="mr-2"></a>
-                                <form action="{{ route('produk-destroy', $item->id) }}" method="POST" style="display: inline;">
+                                <a href="{{ route('produk-destroy', $item->id) }}" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')"><img src="/img/delete.png" alt=""></a>
+                                {{-- <form action="{{ route('produk-destroy', $item->id) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <a type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')"><img src="/img/delete.png" alt=""></a>
-                                </form>
+                                    <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')"><img src="/img/delete.png" alt=""></button>
+                                </form> --}}
                             </td>
                         </tbody>
                         <div class="number" hidden>
