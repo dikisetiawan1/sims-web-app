@@ -104,7 +104,7 @@ class DashboardProduk extends Controller
         $image = $request->file('img');
         $image->storeAs('public/produk', $image->hashName());
         // delete old image
-        Storage::delete('public/produk/'.$image->$id);
+        Storage::delete('public/produk/'.$data->img);
     
         // update all new data
         $data->update([
@@ -114,8 +114,8 @@ class DashboardProduk extends Controller
             'harga_jual' => $request->harga_jual,
             'harga_beli' => $request->harga_beli,
             'stok' => $request->stok
-    
         ]);
+        Session::flash('success','Data berhasil diubah!');
 
         return redirect()->route('produk');
 

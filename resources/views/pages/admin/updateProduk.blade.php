@@ -2,7 +2,7 @@
 @section('content')
             <div class="container mt-4">
               Daftar Produk > Update Produk
-              <form action="{{route('store')}}" method="POST" enctype="multipart/form-data">
+              <form action="{{route('produk-update', $data->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
             <div class="row mt-4">
