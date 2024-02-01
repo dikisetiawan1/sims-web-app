@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
-use App\Models\User;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,10 +12,10 @@ use Illuminate\Support\Facades\Storage;
 class DashboardProduk extends Controller
 {
     public function index(){
-        // $data = DB::table('produks')->get();
         $data = DB::table('produks')
         ->join('kategories', 'produks.kategori_product', '=', 'kategories.id')
         ->select('produks.*','kategories.kategori_product as kategori_nama' )
+        ->orderBy('nama_produk','asc')
         ->get();
         return view('pages.admin.produk', ['data'=>$data]);
     }
@@ -83,7 +82,8 @@ class DashboardProduk extends Controller
     public function edit($id)
     {
         $data = Produk::find($id);
-        return view('pages.admin.updateProduk',compact('data'));
+        $kategori = Kategori::all();
+        return view('pages.admin.updateProduk',compact('data','kategori'));
     }
 
     /**
@@ -96,6 +96,7 @@ class DashboardProduk extends Controller
     public function update(Request $request, $id)
     {
         // get data model from database
+        
         $data = Produk::find($id);
         // validate form, before going to database
         $request->validate([

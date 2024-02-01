@@ -9,10 +9,10 @@
               <div class="col-4 ">
                 <label for="">Kategori</label>
                 <select name="kategori_product" id="" class="form-control" >
-                  <option value="1" selected>Alat Olahraga</option>
-                  <option value="2">Alat Musik</option>   
+                  @foreach($kategori as $item)
+                  <option value="{{$item ->id}}" {{ $item->id == $data->kategori_product ? 'selected' : '' }}>{{$item ->kategori_product}}</option>   
+                  @endforeach
                 </select>
-
                 @error('kategori_product')
                 <div class="alert alert-danger">{{$message}}</div>
                 @enderror
@@ -50,19 +50,22 @@
               </div>
             </div>
             <div class="row mt-4">
-              <div class="col-12">
-                <label for="">Upload Image</label> <br>
-                <input type="file" name="img" id="fileInput"  accept="image/*" onchange="previewImage(event)" value="{{'$data->img'}}" >
+              <div class="col-4">
+                <label for="">Upload Image</label>
+                <input type="file" name="img" id="fileInput"  accept="image/*" onchange="previewImage(event)">
                 @error('img')
                 <div class="alert alert-danger">{{$message}}</div>
                 @enderror
-               
-                
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-12">
                 <div id="imagePreview" >
                   <img src="{{Storage::url('public/produk/').$data->img }}" alt="" >
                 </div>
               </div>
             </div>
+          </div>
 
             <div class="row mt-3 " >
               <div class="col-12 d-flex justify-content-end">

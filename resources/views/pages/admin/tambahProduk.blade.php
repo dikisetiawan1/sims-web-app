@@ -51,17 +51,22 @@
             </div>
             
             <div class="row mt-4">
+              <div class="col-4">
+              <label for="">Upload Image</label>
+              <input type="file" name="img" id="fileInput" accept="image/*" onchange="previewImage(event)">
+              @error('img')
+              <div class="alert alert-danger">{{$message}}</div>
+              @enderror
+            </div>
+          </div>
+            <div class="row mt-4">
               <div class="col-12">
-                <label for="">Upload Image</label> <br>
-                <input type="file" name="img" id="fileInput" accept="image/*" onchange="previewImage(event)">
-                @error('img')
-                <div class="alert alert-danger">{{$message}}</div>
-                @enderror
                 <div id="imagePreview" >
                   <img src="/img/image.png" alt="">
                 </div>
               </div>
             </div>
+          
 
             <div class="row mt-3 " >
               <div class="col-12 d-flex justify-content-end">

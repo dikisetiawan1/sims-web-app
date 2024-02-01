@@ -93,11 +93,7 @@
                             <td>
                                 <a href="{{ route('produk-edit', $item->id) }}"><img src="/img/edit.png" alt="" class="mr-2"></a>
                                 <a href="{{ route('produk-destroy', $item->id) }}" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')"><img src="/img/delete.png" alt=""></a>
-                                {{-- <form action="{{ route('produk-destroy', $item->id) }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')"><img src="/img/delete.png" alt=""></button>
-                                </form> --}}
+                              
                             </td>
                         </tbody>
                         <div class="number" hidden>
