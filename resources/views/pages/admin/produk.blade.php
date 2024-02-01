@@ -86,7 +86,7 @@
                                 <img src="{{Storage::url('public/produk/').$item->img }}"  style="width: 22px">
                             </td>
                             <td>{{$item->nama_produk}}</td>
-                            <td>{{$item->kategori_product}}</td>
+                            <td>{{$item->kategori_nama}}</td>
                             <td>{{rupiah($item->harga_beli)}}</td>
                             <td>{{rupiah($item->harga_jual)}}</td>
                             <td>{{$item->stok}}</td>

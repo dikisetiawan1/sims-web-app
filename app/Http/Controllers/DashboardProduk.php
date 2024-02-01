@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\User;
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class DashboardProduk extends Controller
 {
     public function index(){
-        $data = Produk::paginate(9);
+        // $data = DB::table('produks')->get();
+        $data = DB::table('produks')
+        ->join('kategories', 'produks.kategori_product', '=', 'kategories.id')
+        ->select('produks.*','kategories.kategori_product as kategori_nama' )
+        ->get();
         return view('pages.admin.produk', ['data'=>$data]);
     }
 
