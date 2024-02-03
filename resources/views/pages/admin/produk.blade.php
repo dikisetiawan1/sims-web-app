@@ -12,11 +12,13 @@
             <input type="text" name="search" id="search" aria-label="Small" class="form-control" placeholder="Cari Barang">
         </div>
         <div class="col-2 mr-auto input-group-sm" >
-           <select name="kategori" id="kategori" aria-label="Small" class="form-control">
-            <option selected>Semua</option>
-            <option value="Alat Olahraga">Alat Olahraga</option>
-            <option value="Alat Musik">Alat Musik</option>
+         
+           <select name="kategori_product" onchange="this.form.submit()" aria-label="Small" class="form-control">
+            @foreach($kategori as $item)
+            <option value="{{$item->id}}">{{$item->kategori_product}}</option>   
+            @endforeach
            </select>
+    
         </div>
         <div class="col-2" style="margin-right: -50px">
             <a href="excel.php" class="btn btn-success btn-sm ">

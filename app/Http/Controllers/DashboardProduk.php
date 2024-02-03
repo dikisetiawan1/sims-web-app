@@ -12,14 +12,15 @@ use Illuminate\Support\Facades\Storage;
 class DashboardProduk extends Controller
 {
     public function index(){
+        $kategori = Kategori::all();
         $data = DB::table('produks')
         ->join('kategories', 'produks.kategori_product', '=', 'kategories.id')
         ->select('produks.*','kategories.kategori_product as kategori_nama' )
-        ->orderBy('nama_produk','asc')
+        ->orderBy('id','desc')
         ->get();
-        return view('pages.admin.produk', ['data'=>$data]);
+        return view('pages.admin.produk', compact('data','kategori'));
     }
-
+  
     public function create()
     {
         return view('pages.admin.tambahProduk');
