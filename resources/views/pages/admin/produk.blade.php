@@ -9,7 +9,9 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-search" style="color: #ffffff;"></i></span>
               </div>
-            <input type="text" name="search" id="search" aria-label="Small" class="form-control" placeholder="Cari Barang">
+              <form action="{{route('cari-produk')}}" method="get">
+                <input type="text" name="cari" id="cari" aria-label="Small" class="form-control" placeholder="Cari Barang" onchange="this.form.submit()">
+              </form>
         </div>
         <div class="col-2 mr-auto input-group-sm" >
          
@@ -63,7 +65,7 @@
            @endif
             <div class="card">
                 <div class="card-body">
-                    @if(count($data) >0)
+                    {{-- @if(count($data) >0) --}}
                   <table class="table table striped">
                     <tr>
                         <thead>
@@ -88,7 +90,7 @@
                                 <img src="{{Storage::url('public/produk/').$item->img }}"  style="width: 22px">
                             </td>
                             <td>{{$item->nama_produk}}</td>
-                            <td>{{$item->kategori_nama}}</td>
+                            <td>{{$item->kategori_produk}}</td>
                             <td>{{rupiah($item->harga_beli)}}</td>
                             <td>{{rupiah($item->harga_jual)}}</td>
                             <td>{{$item->stok}}</td>
@@ -105,11 +107,11 @@
                     </tr>
 
                   </table>
-                  @else
+                  {{-- @else
                   <div class="alert alert-danger">
                     <h5>Data produk masih kosong, silahkan tambahkan dahulu!</h5>
                   </div>
-                  @endif
+                  @endif --}}
 
                 </div>
             </div>

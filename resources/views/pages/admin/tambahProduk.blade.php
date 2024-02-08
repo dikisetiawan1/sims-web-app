@@ -29,14 +29,14 @@
             <div class="row mt-4 ">
               <div class="col-4">
                 <label for="">Harga Jual</label>
-                <input type="text" name="harga_jual" id="harga_jual" class="form-control" placeholder="Rp. xxx" >
+                <input type="text" name="harga_jual" id="rupiah" class="form-control" placeholder="Rp. xxx" >
                 @error('harga_jual')
                 <div class="alert alert-danger">{{$message}}</div>
                 @enderror
               </div>
-              <div class="col-4 ">
+              <div class="col-4 ">  
                 <label for="">Harga Beli</label>
-                <input type="text" name="harga_beli" id="harga_beli" class="form-control" placeholder="Rp.xxx" >
+                <input type="text" name="harga_beli" id="rupiah" class="form-control" placeholder="Rp.xxx" >
                 @error('harga_beli')
                 <div class="alert alert-danger">{{$message}}</div>
                 @enderror

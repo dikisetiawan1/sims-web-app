@@ -12,13 +12,26 @@ use Illuminate\Support\Facades\Storage;
 class DashboardProduk extends Controller
 {
     public function index(){
-        $kategori = Kategori::all();
+        $kategori = DB::table('kategories')->get();
         $data = DB::table('produks')
         ->join('kategories', 'produks.kategori_product', '=', 'kategories.id')
-        ->select('produks.*','kategories.kategori_product as kategori_nama' )
+        ->select('produks.*','kategories.kategori_product as kategori_produk' )
         ->orderBy('id','desc')
         ->get();
         return view('pages.admin.produk', compact('data','kategori'));
+    }
+
+    public function cari(Request $request ){
+        $kategori = DB::table('kategories')->get();
+        $cari = $request->cari;
+        $data =DB::table('produks')
+        ->join('kategories', 'produks.kategori_product', '=', 'kategories.id')
+        ->select('produks.*','kategories.kategori_product as kategori_produk' )
+        ->where('nama_produk','like','%'.$cari.'%')
+        ->get();
+
+        return view('pages.admin.produk',compact('data','kategori'));
+
     }
   
     public function create()

@@ -35,10 +35,17 @@
 
 
 // loading overlay pages
-function submitForm() {
+    function submitForm() {
         // Tampilkan overlay loading saat form dikirim
         document.getElementById('loadingOverlay').style.display = 'flex';
         // Submit form secara asinkron menggunakan JavaScript
         document.getElementById('productForm').submit();
     }
+
+
+   
+		
+        
   </script>
+
+
