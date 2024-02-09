@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 // routes produk
 Route::get('/produk', [App\Http\Controllers\DashboardProduk::class, 'index'])->name('produk');
-Route::get('/produk/cari', [App\Http\Controllers\DashboardProduk::class, 'cari'])->name('cari-produk');
+Route::get('/produk/cari', [App\Http\Controllers\DashboardProduk::class, 'cariProduk'])->name('cari-produk');
+Route::get('/produk/filter-kategori', [App\Http\Controllers\DashboardProduk::class, 'kategoriProduk'])->name('filter-kategori-produk');
 Route::get('/produk/tambah', [App\Http\Controllers\DashboardProduk::class, 'create'])->name('tambah-produk');
 Route::post('/produk/proses', [App\Http\Controllers\DashboardProduk::class, 'store'])->name('store');
 Route::get('/produk/{id}/edit', [App\Http\Controllers\DashboardProduk::class, 'edit'])->name('produk-edit');

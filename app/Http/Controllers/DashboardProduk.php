@@ -17,18 +17,30 @@ class DashboardProduk extends Controller
         ->join('kategories', 'produks.kategori_product', '=', 'kategories.id')
         ->select('produks.*','kategories.kategori_product as kategori_produk' )
         ->orderBy('id','desc')
-        ->get();
+        ->paginate(9);
         return view('pages.admin.produk', compact('data','kategori'));
     }
 
-    public function cari(Request $request ){
+    public function cariProduk(Request $request ){
         $kategori = DB::table('kategories')->get();
         $cari = $request->cari;
         $data =DB::table('produks')
         ->join('kategories', 'produks.kategori_product', '=', 'kategories.id')
         ->select('produks.*','kategories.kategori_product as kategori_produk' )
         ->where('nama_produk','like','%'.$cari.'%')
-        ->get();
+        ->paginate(9);
+
+        return view('pages.admin.produk',compact('data','kategori'));
+
+    }
+    public function kategoriProduk(Request $request ){
+        $kategori = DB::table('kategories')->get();
+        $kategori_produk = $request->kategori_product;
+        $data =DB::table('produks')
+        ->join('kategories', 'produks.kategori_product', '=', 'kategories.id')
+        ->select('produks.*','kategories.kategori_product as kategori_produk' )
+        ->where('produks.kategori_product',$kategori_produk)
+        ->paginate(9);
 
         return view('pages.admin.produk',compact('data','kategori'));
 
@@ -156,4 +168,6 @@ class DashboardProduk extends Controller
 
         return redirect()->route('produk');
     }
+
+ 
 }

@@ -14,12 +14,14 @@
               </form>
         </div>
         <div class="col-2 mr-auto input-group-sm" >
-         
+         <form action="{{route('filter-kategori-produk')}}" method='get'>
            <select name="kategori_product" onchange="this.form.submit()" aria-label="Small" class="form-control">
+            <option selected>--Pilih Kategori--</option>
             @foreach($kategori as $item)
             <option value="{{$item->id}}">{{$item->kategori_product}}</option>   
             @endforeach
            </select>
+          </form>
     
         </div>
         <div class="col-2" style="margin-right: -50px">
@@ -65,7 +67,7 @@
            @endif
             <div class="card">
                 <div class="card-body">
-                    {{-- @if(count($data) >0) --}}
+                    @if(count($data) >0)
                   <table class="table table striped">
                     <tr>
                         <thead>
@@ -80,12 +82,9 @@
                         </thead>
                     </tr>
                     <tr>
-                        <div class="number" hidden>
-                            {{$no= 1}}
-                        </div>
                         @foreach( $data as $item)
                         <tbody>
-                            <td>{{$no}}</td>
+                            <td>{{$data->firstItem() + $loop->index}}</td>
                             <td>
                                 <img src="{{Storage::url('public/produk/').$item->img }}"  style="width: 22px">
                             </td>
@@ -100,18 +99,17 @@
                               
                             </td>
                         </tbody>
-                        <div class="number" hidden>
-                            {{$no++}}
-                        </div>
                         @endforeach
                     </tr>
 
                   </table>
-                  {{-- @else
+
+                  {{$data->links('vendor.pagination.custom')}}
+                  @else
                   <div class="alert alert-danger">
                     <h5>Data produk masih kosong, silahkan tambahkan dahulu!</h5>
                   </div>
-                  @endif --}}
+                  @endif
 
                 </div>
             </div>
