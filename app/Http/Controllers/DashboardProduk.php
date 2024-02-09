@@ -5,6 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use App\Models\Produk;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
+use Illuminate\Support\Facades\Session;
+
+class DashboardProduk extends Controller
+{
+    public function index()
+    {
+        $data = Produk::get();
+        return view('pages.admin.produk', ['data' => $data]);
+=======
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -19,6 +29,7 @@ class DashboardProduk extends Controller
         ->orderBy('id','desc')
         ->paginate(9);
         return view('pages.admin.produk', compact('data','kategori'));
+>>>>>>> 16d26e725c0ad33f3abf82b5770361de83d7e43a
     }
 
     public function cariProduk(Request $request ){
@@ -60,27 +71,28 @@ class DashboardProduk extends Controller
     public function store(Request $request)
     {
 
-    $request->validate([
-        'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'nama_produk' => 'required',
-        'kategori_product' => 'required',
-        'harga_jual' => 'required',
-        'harga_beli' => 'required',
-        'stok' => 'required'
-    ]);
+        $request->validate([
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'nama_produk' => 'required',
+            'kategori_product' => 'required',
+            'harga_jual' => 'required',
+            'harga_beli' => 'required',
+            'stok' => 'required'
+        ]);
 
-    $image = $request->file('img');
-    $image->storeAs('public/produk', $image->hashName());
+        $image = $request->file('img');
+        $image->storeAs('public/produk', $image->hashName());
 
-    Produk::create([
-        'img' => $image->hashName(),
-        'nama_produk' => $request->nama_produk,
-        'kategori_product' => $request->kategori_product,
-        'harga_jual' => $request->harga_jual,
-        'harga_beli' => $request->harga_beli,
-        'stok' => $request->stok
+        Produk::create([
+            'img' => $image->hashName(),
+            'nama_produk' => $request->nama_produk,
+            'kategori_product' => $request->kategori_product,
+            'harga_jual' => $request->harga_jual,
+            'harga_beli' => $request->harga_beli,
+            'stok' => $request->stok
 
-    ]);
+        ]);
+        Session::flash('success', 'Data berhasil di tambahkan!');
 
     Session::flash('success','Data berhasil ditambahkan!');
 
@@ -121,6 +133,8 @@ class DashboardProduk extends Controller
      */
     public function update(Request $request, $id)
     {
+<<<<<<< HEAD
+=======
         // get data model from database
         
         $data = Produk::find($id);
@@ -152,6 +166,7 @@ class DashboardProduk extends Controller
 
         return redirect()->route('produk');
 
+>>>>>>> 16d26e725c0ad33f3abf82b5770361de83d7e43a
     }
 
     /**
