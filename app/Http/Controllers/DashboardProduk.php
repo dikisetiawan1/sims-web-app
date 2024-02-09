@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class DashboardProduk extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $data = Produk::get();
-        return view('pages.admin.produk', ['data'=>$data]);
+        return view('pages.admin.produk', ['data' => $data]);
     }
 
     public function create()
@@ -27,30 +29,31 @@ class DashboardProduk extends Controller
     public function store(Request $request)
     {
 
-    $request->validate([
-        'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'nama_produk' => 'required',
-        'kategori_product' => 'required',
-        'harga_jual' => 'required',
-        'harga_beli' => 'required',
-        'stok' => 'required'
-    ]);
+        $request->validate([
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'nama_produk' => 'required',
+            'kategori_product' => 'required',
+            'harga_jual' => 'required',
+            'harga_beli' => 'required',
+            'stok' => 'required'
+        ]);
 
-    $image = $request->file('img');
-    $image->storeAs('public/produk', $image->hashName());
+        $image = $request->file('img');
+        $image->storeAs('public/produk', $image->hashName());
 
-    Produk::create([
-        'img' => $image->hashName(),
-        'nama_produk' => $request->nama_produk,
-        'kategori_product' => $request->kategori_product,
-        'harga_jual' => $request->harga_jual,
-        'harga_beli' => $request->harga_beli,
-        'stok' => $request->stok
+        Produk::create([
+            'img' => $image->hashName(),
+            'nama_produk' => $request->nama_produk,
+            'kategori_product' => $request->kategori_product,
+            'harga_jual' => $request->harga_jual,
+            'harga_beli' => $request->harga_beli,
+            'stok' => $request->stok
 
-    ]);
+        ]);
+        Session::flash('success', 'Data berhasil di tambahkan!');
 
         //redirect to index
-        return redirect()->route('produk')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('produk');
     }
 
     /**
@@ -84,7 +87,6 @@ class DashboardProduk extends Controller
      */
     public function update(Request $request, $id)
     {
-        
     }
 
     /**
