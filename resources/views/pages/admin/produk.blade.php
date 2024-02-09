@@ -16,7 +16,7 @@
         <div class="col-2 mr-auto input-group-sm" >
          <form action="{{route('filter-kategori-produk')}}" method='get'>
            <select name="kategori_product" onchange="this.form.submit()" aria-label="Small" class="form-control">
-            <option selected>--Pilih Kategori--</option>
+            <option  value="">Semua</option>
             @foreach($kategori as $item)
             <option value="{{$item->id}}">{{$item->kategori_product}}</option>   
             @endforeach
@@ -96,15 +96,22 @@
                             <td>
                                 <a href="{{ route('produk-edit', $item->id) }}"><img src="/img/edit.png" alt="" class="mr-2"></a>
                                 <a href="{{ route('produk-destroy', $item->id) }}" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')"><img src="/img/delete.png" alt=""></a>
-                              
                             </td>
                         </tbody>
                         @endforeach
                     </tr>
-
                   </table>
+                  {{-- jumlah halaman dan jumlah data --}}
+                  <div class="row my-2">
+                  <div class="col-4 mt-2">
+                    <p>Show {{ $data->lastItem() }} from {{ $data->total() }}</p>
+                 </div>
+                 {{-- paginasi data --}}
+                  <div class="col-2" style="margin-left: 475px">
+                    {{$data->links('vendor.pagination.custom')}}
+                 </div>
+                </div>
 
-                  {{$data->links('vendor.pagination.custom')}}
                   @else
                   <div class="alert alert-danger">
                     <h5>Data produk masih kosong, silahkan tambahkan dahulu!</h5>
