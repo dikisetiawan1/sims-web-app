@@ -5,16 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use App\Models\Produk;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-use Illuminate\Support\Facades\Session;
-
-class DashboardProduk extends Controller
-{
-    public function index()
-    {
-        $data = Produk::get();
-        return view('pages.admin.produk', ['data' => $data]);
-=======
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +19,7 @@ class DashboardProduk extends Controller
         ->orderBy('id','desc')
         ->paginate(9);
         return view('pages.admin.produk', compact('data','kategori'));
->>>>>>> 16d26e725c0ad33f3abf82b5770361de83d7e43a
+
     }
 
     public function cariProduk(Request $request ){
@@ -94,7 +84,7 @@ class DashboardProduk extends Controller
         ]);
         Session::flash('success', 'Data berhasil di tambahkan!');
 
-    Session::flash('success','Data berhasil ditambahkan!');
+        Session::flash('success','Data berhasil ditambahkan!');
 
         //redirect to index
         return redirect()->route('produk');
@@ -133,8 +123,6 @@ class DashboardProduk extends Controller
      */
     public function update(Request $request, $id)
     {
-<<<<<<< HEAD
-=======
         // get data model from database
         
         $data = Produk::find($id);
@@ -166,7 +154,6 @@ class DashboardProduk extends Controller
 
         return redirect()->route('produk');
 
->>>>>>> 16d26e725c0ad33f3abf82b5770361de83d7e43a
     }
 
     /**
