@@ -101,7 +101,7 @@
                         @endforeach
                     </tr>
                   </table>
-                  {{-- jumlah halaman dan jumlah data --}}
+                  {{-- jumlah data per halaman --}}
                   <div class="row my-2">
                   <div class="col-4 mt-2">
                     <p>Show {{ $data->lastItem() }} from {{ $data->total() }}</p>

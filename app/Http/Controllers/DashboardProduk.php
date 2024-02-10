@@ -77,9 +77,10 @@ class DashboardProduk extends Controller
             'img' => $image->hashName(),
             'nama_produk' => $request->nama_produk,
             'kategori_product' => $request->kategori_product,
-            'harga_jual' => $request->harga_jual,
-            'harga_beli' => $request->harga_beli,
+            'harga_jual' => str_replace('.','',$request->harga_jual),
+            'harga_beli' => str_replace('.','',$request->harga_beli),
             'stok' => $request->stok
+            
 
         ]);
         Session::flash('success', 'Data berhasil di tambahkan!');
@@ -146,8 +147,8 @@ class DashboardProduk extends Controller
             'img' => $image->hashName(),
             'nama_produk' => $request->nama_produk,
             'kategori_product' => $request->kategori_product,
-            'harga_jual' => $request->harga_jual,
-            'harga_beli' => $request->harga_beli,
+            'harga_jual' => str_replace('.','',$request->harga_jual),
+            'harga_beli' =>str_replace('.','',$request->harga_beli),
             'stok' => $request->stok
         ]);
         Session::flash('info','Data berhasil diubah!');

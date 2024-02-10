@@ -28,14 +28,20 @@
             <div class="row mt-4 ">
               <div class="col-4">
                 <label for="">Harga Jual</label>
-                <input type="text" name="harga_jual" id="harga_jual" class="form-control" placeholder="Rp. xxx" value="{{$data->harga_jual}}" >
+                <div class="input-group">
+                  <span class="input-group-addon">Rp. </span>
+                <input type="text" name="harga_jual" id="jual" class="form-control" placeholder="Rp. xxx" value="{{$data->harga_jual}}" >
+                </div>
                 @error('harga_jual')
                 <div class="alert alert-danger">{{$message}}</div>
                 @enderror
               </div>
               <div class="col-4 ">
                 <label for="">Harga Beli</label>
-                <input type="text" name="harga_beli" id="harga_beli" class="form-control" placeholder="Rp.xxx" value="{{$data->harga_beli}}" >
+                <div class="input-group">
+                  <span class="input-group-addon">Rp. </span>
+                <input type="text" name="harga_beli" id="beli" class="form-control" placeholder="Rp.xxx" value="{{$data->harga_beli}}" >
+                </div>
                 @error('harga_beli')
                 <div class="alert alert-danger">{{$message}}</div>
                 @enderror
