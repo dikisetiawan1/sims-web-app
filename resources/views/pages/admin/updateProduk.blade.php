@@ -30,7 +30,7 @@
                 <label for="">Harga Jual</label>
                 <div class="input-group">
                   <span class="input-group-addon">Rp. </span>
-                <input type="text" name="harga_jual" id="jual" class="form-control" placeholder="Rp. xxx" value="{{$data->harga_jual}}" >
+                <input type="text" name="harga_jual" id="jual" class="form-control" placeholder="Rp. xxx" value="{{editRupiah($data->harga_jual)}}" >
                 </div>
                 @error('harga_jual')
                 <div class="alert alert-danger">{{$message}}</div>
@@ -40,7 +40,7 @@
                 <label for="">Harga Beli</label>
                 <div class="input-group">
                   <span class="input-group-addon">Rp. </span>
-                <input type="text" name="harga_beli" id="beli" class="form-control" placeholder="Rp.xxx" value="{{$data->harga_beli}}" >
+                <input type="text" name="harga_beli" id="beli" class="form-control" placeholder="Rp.xxx" value="{{editRupiah($data->harga_beli)}}" >
                 </div>
                 @error('harga_beli')
                 <div class="alert alert-danger">{{$message}}</div>
@@ -74,7 +74,7 @@
           </div>
 
             <div class="row mt-3 " >
-              <div class="col-12 d-flex justify-content-end">
+              <div class="col-12" style="margin-left:742px">
                 <a href="{{route("produk")}}" class="btn btn-outline-primary col-sm-2 mx-2 ">Batalkan</a>
                 <button type="submit" class="btn btn-primary col-sm-2" onclick="submitForm()">Simpan</button>
               </div>
