@@ -7,7 +7,7 @@
         <div class="col-3 input-group-sm input-group">
             <span class="icon"></span>
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1"><i class="fas fa-search" style="color: #ffffff;"></i></span>
+                {{-- <span class="input-group-text" id="basic-addon1"><i class="fas fa-search" style="color: #ffffff;"></i></span> --}}
               </div>
               <form action="{{route('cari-produk')}}" method="get">
                 <input type="text" name="cari" id="cari" aria-label="Small" class="form-control" placeholder="Cari Barang" onchange="this.form.submit()">
@@ -71,14 +71,14 @@
                   <table class="table table striped">
                     <tr>
                         <thead>
-                            <th>No</th>
-                            <th>Image</th>
-                            <th>Nama Produk</th>
-                            <th>Kategori Produk</th>
-                            <th>Harga Beli(Rp)</th>
-                            <th>Harga Jual(Rp)</th>
-                            <th>Stok Produk</th>
-                            <th>Aksi</th>
+                            <th>No <img src="img/sorting.png" alt="" style="width: 20px"></th>
+                            <th>Image <img src="img/sorting.png" alt="" style="width: 20px"> </th>
+                            <th>Nama Produk <img src="img/sorting.png" alt="" style="width: 20px"></th>
+                            <th>Kategori Produk <img src="img/sorting.png" alt="" style="width: 20px"></th>
+                            <th>Harga Beli(Rp) <img src="img/sorting.png" alt="" style="width: 20px"></th>
+                            <th>Harga Jual(Rp) <img src="img/sorting.png" alt="" style="width: 20px"></th>
+                            <th>Stok Produk <img src="img/sorting.png" alt="" style="width: 20px"></th>
+                            <th>Aksi <img src="img/sorting.png" alt="" style="width: 20px"></th>
                         </thead>
                     </tr>
                     <tr>
