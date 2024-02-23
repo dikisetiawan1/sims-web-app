@@ -11,19 +11,21 @@ use Illuminate\Support\Facades\Storage;
 
 class DashboardProduk extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         $kategori = DB::table('kategories')->get();
+        $kategori_produk = $request->kategori_product;
         $data = DB::table('produks')
         ->join('kategories', 'produks.kategori_product', '=', 'kategories.id')
         ->select('produks.*','kategories.kategori_product as kategori_produk' )
         ->orderBy('id','desc')
         ->paginate(9);
-        return view('pages.admin.produk', compact('data','kategori'));
+        return view('pages.admin.produk', compact('data','kategori','kategori_produk'));
 
     }
 
     public function cariProduk(Request $request ){
         $kategori = DB::table('kategories')->get();
+        $kategori_produk = $request->kategori_product;
         $cari = $request->cari;
         $data =DB::table('produks')
         ->join('kategories', 'produks.kategori_product', '=', 'kategories.id')
@@ -31,7 +33,7 @@ class DashboardProduk extends Controller
         ->where('nama_produk','like','%'.$cari.'%')
         ->paginate(9);
 
-        return view('pages.admin.produk',compact('data','kategori'));
+        return view('pages.admin.produk',compact('data','kategori','kategori_produk'));
 
     }
     public function kategoriProduk(Request $request ){
@@ -43,7 +45,7 @@ class DashboardProduk extends Controller
         ->where('produks.kategori_product',$kategori_produk)
         ->paginate(9);
 
-        return view('pages.admin.produk',compact('data','kategori'));
+        return view('pages.admin.produk',compact('data','kategori','kategori_produk'));
 
     }
   

@@ -18,7 +18,7 @@
            <select name="kategori_product" onchange="this.form.submit()" aria-label="Small" class="form-control">
             <option  value="">Semua</option>
             @foreach($kategori as $item)
-            <option value="{{$item->id}}">{{$item->kategori_product}}</option>   
+              <option value="{{$item->id}}" {{($kategori_produk == $item->id ) ? "selected" : " "}}>{{$item->kategori_product}}</option>   
             @endforeach
            </select>
           </form>
