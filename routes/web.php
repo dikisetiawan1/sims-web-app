@@ -26,3 +26,7 @@ Route::get('/produk/{id}/destroy', [App\Http\Controllers\DashboardProduk::class,
 
 // routes profile
 Route::get('/profile', [App\Http\Controllers\DashboardProfile::class, 'index'])->name('profile');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
