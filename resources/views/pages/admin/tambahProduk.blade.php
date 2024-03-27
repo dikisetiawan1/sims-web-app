@@ -76,7 +76,7 @@
 
             <div class="row mt-3 " >
               <div class="col-12 d-flex justify-content-end">
-                <button type="submit" class="btn btn-outline-primary col-sm-2 mx-2 ">Batalkan</button>
+                <a href="{{route('produk')}}" class="btn btn-outline-primary col-sm-2 mx-2 "> Batalkan</a>
                 <button type="submit" class="btn btn-primary col-sm-2" onclick="submitForm()">Simpan</button>
               </div>
             </div>
